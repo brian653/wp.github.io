@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>王品國際旅行社</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        header {
+            background: #fcfffc; /* 若綠色 */
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            color: #ff0000; /* 亮紅色 */
+            font-size: 40px; /* 更大 */
+            font-weight: bolder; /* 更粗 */
+        }
+        nav {
+            background: #15c1b0; /* 綠色 */
+            color: #181515;
+            padding: 5px 0;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            cursor: pointer;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .intro, .services, .options {
+            background: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px; /* 圓弧狀 */
+        }
+        .intro {
+            background: #ffe602; /* 淡黃色 */
+        }
+        .intro h2 {
+            margin-top: 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .intro p {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .services ul {
+            list-style: none;
+            padding: 0;
+        }
+        .services ul li {
+            background: #000000;
+            margin: 10px 0;
+            padding: 10px;
+            border-left: 5px solid #333;
+            border-radius: 10px; /* 圓弧狀 */
+        }
+        .options label {
+            display: block;
+            margin: 10px 0 5px;
+            font-size: 18px; /* 字體變大 */
+            font-weight: bold; /* 粗體字 */
+        }
+        .options select, .options input, .options textarea {
+            width: 60%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 10px; /* 圓弧狀 */
+            background-color: #f3f0f0; /* 柑橘色 */
+        }
+        .options button {
+            display: block;
+            width: 40%;
+            padding: 10px;
+            background: #ccff00;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px; /* 圓弧狀 */
+            font-size: 24px; /* 更大 */
+            font-weight: bold; /* 更粗 */
+        }
+        .options button:hover {
+            background: #ff0303;
+        }
+        footer {
+            background: #008000; /* 綠色 */
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        footer a {
+            color: #3fd1af;
+            text-decoration: none;
+        }
+        .colorful {
+            background: linear-gradient(45deg, #ffcc00eb);
+            border-radius: 10px; /* 圓弧狀 */
+        }
+        .colorful h2 {
+            color: #171615f0;
+        }
+        .colorful ul li {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px; /* 圓弧狀 */
+        }
+        .line-link {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .line-link a {
+            color: #faf8f8;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            margin-top: 20px;
+            border-radius: 10px; /* 圓弧狀 */
+        }
+    </style>
+    <script>
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function calculateDate() {
+            const startDate = new Date(document.getElementById('startDate').value);
+            const type = document.getElementById('type').value;
+            const urgency = document.getElementById('urgency').value;
+            let daysToAdd = 0;
+
+            if (type === 'passport') {
+                daysToAdd = urgency === 'normal' ? 14 : 5;
+            } else if (type === 'taiwanPermit') {
+                daysToAdd = urgency === 'normal' ? 7 : 5;
+            }
+
+            let endDate = new Date(startDate);
+            let addedDays = 0;
+
+            while (addedDays < daysToAdd) {
+                endDate.setDate(endDate.getDate() + 1);
+                if (endDate.getDay() !== 0 && endDate.getDay() !== 6) {
+                    addedDays++;
+                }
+            }
+
+            document.getElementById('result').innerText = `取回日期: ${endDate.toLocaleDateString('zh-Hant-TW')}`;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>王品國際旅行社</h1>
+    </header>
+    <nav>
+        <a onclick="scrollToSection('intro')">關於我們</a>
+        <a onclick="scrollToSection('services')">服務項目</a>
+        <a href="https://page.line.me/wp88888">聯絡我們</a>
+    </nav>
+    <div class="container">
+        <div id="intro" class="intro colorful">
+             <li><a href="https://s6.aconvert.com/convert/p3r68-cdx67/aabq3-xjvfw.html"><關於我們></a></li>
+            <p>王品國際旅行社專注於提供高品質的企業旅遊服務。我們致力於為企業客戶提供量身定制的旅遊方案，無論是員工旅遊、企業活動還是國際團體旅遊，我們都能滿足您的需求。</p>
+        </div>
+        <div id="options" class="options colorful">
+            <h2>護照、台胞日期計算</h2>
+            <li><a href="https://s6.aconvert.com/convert/p3r68-cdx67/ak1di-iv7n6.html">照片尺寸及所所需文件說明</a></li>
+            <form>
+                <label for="startDate">申請日期:</label>
+                <input type="date" id="startDate" required>
+                
+                <label for="type">文件種類:</label>
+                <select id="type">
+                    <option value="passport">護照</option>
+                    <option value="taiwanPermit">台胞證</option>
+                </select>
+                
+                <label for="urgency">急件或正常件:</label>
+                <select id="urgency">
+                    <option value="normal">正常件</option>
+                    <option value="urgent">急件</option>
+                </select>
+                
+                <button type="button" onclick="calculateDate()">計算取回日期</button>
+                
+                <p id="result"></p>
+            </form>
+        </div>
+        <div id="services" class="services colorful">
+            <h2>專區</h2>
+            <ul>
+                <li><a href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAANAAR4rHF1UNVNYRjJHUjA2NjdOWkdDWUhJUFNQU01DWS4u">客戶旅遊規劃</a></li>
+                <li><a href="https://www.wangpiin.com/">企業戶報名系統</a></li>
+            </ul>
+        </div>
+        <div id="corporateTravel" class="options colorful">
+            <h2>旅遊試算表</h2>
+            <form>
+                <label for="travelDate">預計旅遊日期:</label>
+                <input type="date" id="travelDate" required>
+
+                <label for="travelLocation">幾日遊:</label>
+                <input type="text" id="travelLocation" required>
+                
+                <label for="travelLocation">想去哪裡玩:</label>
+                <input type="text" id="travelLocation" required>
+                
+                <label for="participants">旅遊人數:</label>
+                <input type="number" id="participants" min="1" required>
+                
+                <label for="budget">預算:</label>
+                <input type="number" id="budget" min="1000" required>
+                
+                <label for="contactInfo">聯絡資訊:</label>
+                <input type="text" id="contactInfo" required>
+                
+                <label for="specialRequests">特殊需求:</label>
+                <textarea id="specialRequests" rows="4"></textarea>
+                
+                <button type="submit">提交 
+                </div>
+                    <p id="result"></p>
+        <iframe src="https://www.wangpiin.com/"></iframe>
+        
+        <div class="line-link">
+            <script>
+                window.difyChatbotConfig = {
+                 token: '3zyuPDY2RicVxuQn'
+                }
+            </div>
+    </div>
+</div>
+</body>
+</html>
